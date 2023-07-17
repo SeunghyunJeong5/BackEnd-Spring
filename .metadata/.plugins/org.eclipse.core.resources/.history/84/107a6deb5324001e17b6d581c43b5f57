@@ -1,0 +1,5 @@
+package com.example.test_project_gradle.controller;
+
+public class Controller_My {
+
+}

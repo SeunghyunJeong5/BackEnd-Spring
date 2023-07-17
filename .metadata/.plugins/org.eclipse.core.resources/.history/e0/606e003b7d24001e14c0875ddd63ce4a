@@ -1,0 +1,7 @@
+
+
+# 1. 프로젝트에서 사용할 포트지정
+
+# 2. controller : 	getmapping..../board 요청했을때 ===> welcome my board 뜨게(response...로)
+
+# 3. boardDto ===> lombok이 작동되는지 확인

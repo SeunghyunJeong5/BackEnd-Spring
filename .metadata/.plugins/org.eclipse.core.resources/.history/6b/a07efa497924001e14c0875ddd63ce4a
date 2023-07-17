@@ -1,0 +1,21 @@
+
+# 주석 : Spring Boot의 각종 설정을 세팅하는 파일
+# 서버 포트 설정
+
+server.port=9696
+
+# Dev Tools 활성화 : 서버를 재시작하지 않고 바로 클라이언트에게 적용
+	#cache를 사용하지 않도록 설정
+spring.devtools.livereload.enabled=true
+spring.freemarker.cache=false
+
+
+# DB 연결설정 (1. H2 DB, 2. Oracle, 3. MySQL, 4. MSSQL)
+	# DB명 : local
+	# 계정 : sa
+spring.h2.console.enabled=true
+spring.h2.console.path=/h2-console
+spring.datasource.url=jdbc:h2~/local
+
+
+

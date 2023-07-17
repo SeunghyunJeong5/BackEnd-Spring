@@ -1,0 +1,14 @@
+package com.example.test_project_gradle.controller;
+
+import org.springframework.stereotype.Controller;
+
+@Controller
+public class Controller_My {
+	
+	
+	public String clientRequest() {
+		
+		return "Welcome to My Test Spring Boot";
+	}
+
+}

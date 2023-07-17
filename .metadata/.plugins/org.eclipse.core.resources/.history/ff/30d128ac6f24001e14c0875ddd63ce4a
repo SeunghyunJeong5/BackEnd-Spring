@@ -1,0 +1,8 @@
+package com.example.test_project_gradle.test;
+
+public class BoardDTO {
+	
+	private String b_id;
+	private String title;
+	private String content;
+}

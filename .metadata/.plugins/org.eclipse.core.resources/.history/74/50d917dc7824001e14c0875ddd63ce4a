@@ -1,0 +1,10 @@
+
+# 주석 : Spring Boot의 각종 설정을 세팅하는 파일
+# 서버 포트 설정
+
+server.port=9696
+
+# Dev Tools 활성화 : 서버를 재시작하지 않고 바로 클라이언트에게 적용
+	#cache를 사용하지 않도록 설정
+spring.devtools.livereload.enabled=true
+spring.freemarker.cache=false

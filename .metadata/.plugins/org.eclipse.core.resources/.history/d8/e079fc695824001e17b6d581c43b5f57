@@ -1,0 +1,20 @@
+package com.example.test_project_maven.controller;
+
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
+
+@Controller
+public class OrderController {
+
+	//게시판을 Read
+	//http://localhost:9595/read
+	@GetMapping ("/read")
+	public String readBoard() {
+		//1. 요청을 받아서 
+		
+		
+		//2. BackEnd에 일을 처리 : 백엔드에 비지니스로직 처리 : service
+		return "readBoard";
+	}
+	
+}
