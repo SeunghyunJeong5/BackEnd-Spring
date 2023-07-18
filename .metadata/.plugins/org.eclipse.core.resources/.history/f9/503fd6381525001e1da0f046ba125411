@@ -1,0 +1,15 @@
+package com.mysite.sbb;
+
+
+
+import jakarta.persistence.Entity;	//spring boot 3.0,
+//import javax.persistence.Entity;	//spring boot 2.0
+
+
+
+@Entity
+public class Question {
+	//@Entity : 클래스 위에 부여, DataBase의 테이블과 매칭되는 자바 클래스
+		// Question : 테이블명
+		//		변수 : 컬럼명
+}

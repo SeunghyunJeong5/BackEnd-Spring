@@ -1,0 +1,13 @@
+
+Spring Boot의 로직
+
+client == dto ==> Controller ===> Service ====> Repository ====> Entity 클래스 ====> DB
+						  (비지니스 로직) 	 (DAO, DB를 직접접근)
+						 
+						 
+@Autowired : 객체를 Spring Container에서 생성해서 주입(DI:의존성 주입)
+	-- Test 코드에서 사용. 동일한 타입을 찾아서 객체 생성
+	
+H2 DB는 멀티 
+						  
+						  

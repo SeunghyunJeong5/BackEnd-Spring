@@ -1,0 +1,53 @@
+
+# 주석 : Spring Boot의 각종 설정을 세팅하는 파일
+# 서버 포트 설정
+
+server.port=9696
+
+# Dev Tools 활성화 : 서버를 재시작하지 않고 바로 클라이언트에게 적용
+	#cache를 사용하지 않도록 설정
+spring.devtools.livereload.enabled=true
+spring.freemarker.cache=false
+
+
+# DB 연결설정 (1. H2 DB, 2. Oracle, 3. MySQL, 4. MSSQL)
+
+##############################################################
+# 1. H2 DB
+	# DB명 : local (사용자\h1\local.mv.db)
+	# 계정 : sa
+	# 암호 : 없음
+# http://localhost:9696/h2-console
+spring.h2.console.enabled=true
+spring.h2.console.path=/h2-console
+spring.datasource.url=jdbc:h2~/local
+spring.datasource.dbcp2.driver-class-name=org.h2.Driver
+spring.datasource.username=sa
+spring.datasource.password=
+
+##############################################################
+
+
+# JPA Setting (1. JPA가 접근할 DB,
+spring.jpa.properties.hibernate.dialect=org.hibernate.dialect.H2Dialect
+spring.jpa.hibernate.ddl-auto=update
+	# update : Entity 클래스의 수정된 내용만 업데이트하게.
+	# none : Entity 클래스가 수정되더라도 실제 DB에 적용하지 않도록 설정
+	# validate : 변경사항만 감지
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

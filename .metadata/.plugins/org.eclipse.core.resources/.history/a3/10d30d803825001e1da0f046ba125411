@@ -1,0 +1,23 @@
+package com.mysite.sbb;
+
+import org.junit.jupiter.api.Test;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.context.SpringBootTest;
+
+@SpringBootTest
+class SbbApplicationTests {
+	
+	//QuestionRepository 객체 주입
+	@Autowired
+	private QuestionRepository q;
+
+	@Test
+	void contextLoads() {
+		
+		Question q1 = new Question();
+		
+		q1.setSubject(null);
+		
+	}
+
+}

@@ -1,0 +1,39 @@
+package com.mysite.sbb;
+
+import java.time.LocalDateTime;
+
+import org.junit.jupiter.api.Test;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.context.SpringBootTest;
+
+@SpringBootTest
+class SbbApplicationTests {
+	
+	//QuestionRepository 객체 주입
+	@Autowired
+	private QuestionRepository qr;
+
+	@Test
+	void contextLoads() {
+		
+		Question q1 = new Question();
+		
+		q1.setSubject("오늘의 날씨는?");
+		q1.setContent("오늘의 날씨는 어떠한지 궁금합니다.");
+		q1.setCreateDate(LocalDateTime.now());
+		
+		qr.save(q1);
+		
+		
+		Question q2 = new Question();
+		
+		q1.setSubject("스프링 부트 질문");
+		q1.setContent("스프링 부트가 무엇인지 어떠한지 궁급합니다.");
+		q1.setCreateDate(LocalDateTime.now());
+		
+		qr.save(q2);
+		
+		
+	}
+
+}

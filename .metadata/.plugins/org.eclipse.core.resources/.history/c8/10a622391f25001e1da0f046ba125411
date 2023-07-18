@@ -1,0 +1,16 @@
+package com.mysite.sbb;
+
+import java.time.LocalDateTime;		// 그 지역에 맞도록 날짜와 시간을 등록
+
+public class Answer {
+		//답변글을 저장하는 테이블
+	
+	
+	private Integer id;
+	
+	private String content;
+	
+	private LocalDateTime createDate;
+	
+	private Question question;
+}

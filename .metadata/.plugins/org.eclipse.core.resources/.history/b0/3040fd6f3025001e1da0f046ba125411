@@ -1,0 +1,7 @@
+package com.mysite.sbb;
+
+public class QuestionRepository {
+
+	//client ===> Controller ===> Service ====> Repository
+	//							(비지니스 로직)	(DAO, DB를 직접접근)
+}
