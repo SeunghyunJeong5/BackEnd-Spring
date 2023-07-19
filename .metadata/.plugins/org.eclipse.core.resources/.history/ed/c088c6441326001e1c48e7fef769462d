@@ -1,0 +1,68 @@
+
+
+
+
+# 1. 프로젝트에서 사용할 포트지정 : 9898
+server.port=9898
+# H2DB는 여러곳에서 접속이 안될수도 있음.
+
+
+# 2. controller : 	getmapping....(http://localhost:9898/board) 요청했을때 ===> welcome my board 뜨게(response...로)
+#src/main/java/com.mysite.test_sbb 패키지에 controller 패키지만들고 안에 class를 만들고 함.
+
+# 3. boardDto ===> lombok이 작동되는지 확인
+# 위와 같은 경로에 test패키지 만들고 그안에 클래스만들고 어노테이션 방식으로 테스트함.
+#lombok은 한번은 설정을 해줘야된다.
+#cmd 띄워서
+#cd c:\
+#cd lombok
+#java -jar lombok.jar 해서 인스톨
+
+
+# 4. devTools ===> 작동(restart를 한번 해야됨. 그래야 적용)
+# Dev Tools 활성화 : 서버를 재시작하지 않고 바로 클라이언트에게 적용
+	#cache를 사용하지 않도록 설정
+spring.devtools.livereload.enabled=true
+spring.freemarker.cache=false
+
+
+# 5. H2 DB 라이브러리 추가 후 작동 : http://localhost:9898/h2-console
+#		local2(H2 DB) 	 (사용자\hi\local2.mv.db)
+
+# 사용자\hi 이경로에 local2.mv.db 이름으로 텍스트파일을 생성하고.
+spring.h2.console.enabled=true
+spring.h2.console.path=/h2-console
+spring.datasource.url=jdbc:h2:~/local2
+spring.datasource.dbcp2.driver-class-name=org.h2.Driver
+spring.datasource.username=sa
+spring.datasource.password=
+
+
+# src의 build.gradle 가서 runtimeOnly 'com.h2database:h2' dependences에 추가하고 build.gradle 오른쪽 클릭하고 gradle에 refresh gradle project하고
+
+# restart하고 http://localhost:9898/h2-console 크롬으로 실행.
+
+
+
+
+
+
+
+
+
+
+
+
+# JPA Setting (1. JPA가 접근할 DB, 2. 엔티티를 기준으로 생성할 규칙)
+spring.jpa.properties.hibernate.dialect=org.hibernate.dialect.H2Dialect
+spring.jpa.hibernate.ddl-auto=update
+	# update : Entity 클래스의 수정된 내용만 업데이트하게.(변수를 삭제할때는 create를 한번 해줘야한다.)
+	# none : Entity 클래스가 수정되더라도 실제 DB에 적용하지 않도록 설정
+	# validate : 변경사항만 감지
+	# create : 서비스 시작할때 기존의 테이블을 삭제 후 다시 생성(주의)
+	# create-drop : 서비스 중지할때 테이블 삭제, 시작시 테이블 생성(주의)
+	# 개발시에는 update로 설정, 실제로 운영중일때는 none, validate 옵션으로 설정
+
+
+
+

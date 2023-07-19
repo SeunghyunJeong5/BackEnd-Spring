@@ -40,7 +40,7 @@ public class Answer {
 	//Foreign Key 를 할당하는 컬럼 
 		// question ======> QUESTION_ID로 바뀜
 	@ManyToOne		//answer ==> many, question ==> one
-	private Question question;
+	private Question question;		//===> 이게 QUESTION_ID 컬럼이 됨.
 	
 	
 	

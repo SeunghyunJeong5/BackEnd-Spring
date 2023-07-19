@@ -1,0 +1,66 @@
+
+
+
+
+1. JPA 라이브러리 추가
+
+	build.gradle에 가서 밑에 라이브러리 추가하고 refresh
+	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+
+
+
+2. JPA 세팅(1. 어떤 DB를 사용할지, 2. Entity 클래스의 설정)
+
+이거 입력
+# JPA Setting (1. JPA가 접근할 DB, 2. 엔티티를 기준으로 생성할 규칙)
+spring.jpa.properties.hibernate.dialect=org.hibernate.dialect.H2Dialect
+spring.jpa.hibernate.ddl-auto=update
+	
+	
+
+3. Entity Class : Question, Answer
+
+클래스 두개 만들기. 각종 설정(ID 컬럼에 primary key 넣고, 밑에 foreign key 넣는거 주의)
+
+
+4. H2 DB : local2에 접속해서 잘 작동되는지 확인
+리스타트해서 접속을 해봐야됨 H2 DB
+이거를 했는데, 나는 버전 문제로 파일을 삭제했음. 그런 경우도 있으니 그냥 이것저것 해보기.
+
+5. QuestionRepository, AnswerRepository
+두 인터페이스 생성하고 상속 받기.
+
+
+6~7둘다 TestSbbApplicationTests에서 실행.
+6. JUnitTest를 사용해서 Question 테이블에 값을 Insert
+스탑을 해놓고 값을 넣어야됨.
+run as --> JUnitTest로 넣어야됨.
+
+7. JUnitTest를 사용해서 DB의 값을 불러와서 출력구문과 일치하는지 테스트
+restart를 해서 값이 뭐가 들어가있는지를 보고 스탑을 해놓고 DB의 내용과 비교를 하는 출력구문을 만들어야함.
+run as --> JUnitTest로 실행해야됨.
+
+======================================================================
+
+1. QuestionRepository
+	- subject 컬럼을 기준으로 검색 "%날짜%"
+		select * from question where subject like '%?%' ===> 메소드 생성
+	- content 컬럼을 기준으로 검색 "%내용%"
+		select * from question where content like '%?%' ===> 메소드 생성
+	- subject or content 컬럼을 기준으로 검색 ===> 메소드 생성
+	
+QuestionRepository 설정후에 test하면됨.	
+	
+	
+2. Answer 테이블에 값을 insert ---> Question_id 컬럼을 참조해서 insert
+   AnswerRepository.save()
+   
+Answer 설정후에 test하면됨.
+   
+   
+   
+				
+		
+		
+
+	 

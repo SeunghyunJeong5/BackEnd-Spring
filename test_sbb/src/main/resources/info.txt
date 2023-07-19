@@ -40,6 +40,33 @@ run as --> JUnitTest로 넣어야됨.
 restart를 해서 값이 뭐가 들어가있는지를 보고 스탑을 해놓고 DB의 내용과 비교를 하는 출력구문을 만들어야함.
 run as --> JUnitTest로 실행해야됨.
 
+======================================================================
 
+1. QuestionRepository
+	- subject 컬럼을 기준으로 검색 "%날짜%"
+		select * from question where subject like '%?%' ===> 메소드 생성
+	- content 컬럼을 기준으로 검색 "%내용%"
+		select * from question where content like '%?%' ===> 메소드 생성
+	- subject or content 컬럼을 기준으로 검색 ===> 메소드 생성
+
+일단 application.properties에 
+# JPA 메소드를 SQL 구문으로 콘솔에 출력하도록 하는 세팅 (개발시에만 필요)
+spring.jpa.properties.hibernate.format_sql=true
+spring.jpa.properties.hibernate.show_sql=true
+이거 넣고
+	
+QuestionRepository 설정후에 test하면됨.	
+	
+	
+2. Answer 테이블에 값을 insert ---> Question_id 컬럼을 참조해서 insert
+   AnswerRepository.save()
+테스트 하는곳에 
+	private AnswerRepository ar;
+이거 입력하고 테스트 하면됨.
+   
+   
+				
+		
+		
 
 	 
