@@ -1,0 +1,36 @@
+
+<html layout:decorate="~{layout}">
+
+	<!-- 서버의 Model 객체에 전송된 값을 받아서 출력  -->
+	
+	<div layout:fragment="content" class="container my-3">
+	<table class="table">
+		
+		<thead class = "table-dark">  
+			<tr> 
+				<th>번호</th>
+				<th>제목</th>
+				<th>작성일시</th>
+			</tr>
+		</thead>
+		<tbody>
+			<!-- loop.count  : List의 방번호를 1번부터 출력    -->
+			<tr th:each = "question , loop : ${paging}">
+				<td th:text="${loop.count}">번호</td>
+				<td>
+					
+					<a th:href = "@{|/question/detail/${question.id}|}"  th:text ="${question.subject}"> 제목 </a>
+					
+					</td>
+				<td th:text="${#temporals.format(question.createDate, 'yyyy-MM-dd HH:mm')}">작성일시</td>
+			</tr>	
+		</tbody>	
+	</table>
+	
+	<a th:href = "@{/question/create}" class="btn btn-primary"> 질문 등록하기</a>
+	
+	
+	</div>	
+	
+
+</html>

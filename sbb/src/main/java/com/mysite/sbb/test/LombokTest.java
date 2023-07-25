@@ -7,9 +7,11 @@ import lombok.Setter;
 @Data
 public class LombokTest {
 	
-	private String id;
+	private String id; 
 	private String pass;
-	private int age;
-	private double weight;
+	private int age; 
+	private double weight; 
+	
+	
 
 }

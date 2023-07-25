@@ -1,5 +1,0 @@
-
-Spring Boot의 로직
-
-client ===> Controller ===> Service ====> Repository ====> Entity 클래스 ====> DB
-						  (비지니스 로직) 	 (DAO, DB를 직접접근)
