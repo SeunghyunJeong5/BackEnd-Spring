@@ -1,0 +1,14 @@
+package com.mysite.sbb.user;
+
+import static org.junit.jupiter.api.Assertions.*;
+
+import org.junit.jupiter.api.Test;
+
+class UserServiceTest {
+
+	@Test
+	void testCreate() {
+		fail("Not yet implemented");
+	}
+
+}

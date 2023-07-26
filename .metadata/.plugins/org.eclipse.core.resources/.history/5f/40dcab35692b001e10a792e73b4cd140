@@ -1,0 +1,11 @@
+package com.mysite.sbb.user;
+
+import org.springframework.data.jpa.repository.JpaRepository;
+
+public interface UserRepository extends JpaRepository<SiteUser, Long> {
+		//JpaRepository에서 메소드가 상속
+		// 1. findAll()
+		// 2. findById(정수)
+	
+	
+}

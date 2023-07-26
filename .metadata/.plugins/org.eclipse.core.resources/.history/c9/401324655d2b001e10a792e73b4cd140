@@ -1,0 +1,24 @@
+package com.mysite.sbb;
+
+import org.springframework.context.annotation.Configuration;
+import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
+import org.springframework.security.web.SecurityFilterChain;
+
+@Configuration
+@EnableWebSecurity
+public class SecurityConfig {
+	//Spring Security 를 제어하는 설정 클래스
+	
+	/*
+	 	@Configuration		: 스프링의 각종 설정을 잡는 어노테이션
+	 						  이걸 사용하면 SbbApplication클래스가 자동으로 만들어짐.
+	 						  SbbApplication.java ===> 스프링 부트가 부팅될때 모든 설정을 적용하는 파일
+		
+		@EnableWebSecurity	: 스프링의 보안설정을 담당
+	 */
+	
+	SecurityFilterChain filterChain(HttpSecurity http) {
+		
+	}
+
+}

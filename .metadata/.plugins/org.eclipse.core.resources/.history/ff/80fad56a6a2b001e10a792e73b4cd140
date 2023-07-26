@@ -1,0 +1,17 @@
+package com.mysite.sbb.user;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+@Service
+public class UserService {
+	// Client ===> Controller ==> Service ==> Repository ===> Entity ===> DB Table
+	
+	// service에 중복된 코드들을 만들어놓고 controller가 가져와서 Repository에 접속하도록함.
+	
+	//				    타입				객체
+	//private final UserRepository userRepository;
+	
+	@Autowired			//객체를 DI해서 주입, autowired는 요즘은 잘 안씀.
+	private UserRepository userRepository;
+}

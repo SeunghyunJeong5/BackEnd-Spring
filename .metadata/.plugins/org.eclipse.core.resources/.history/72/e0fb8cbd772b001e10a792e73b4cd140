@@ -1,0 +1,18 @@
+package com.mysite.sbb.user;
+
+import static org.junit.jupiter.api.Assertions.*;
+
+import org.junit.jupiter.api.Test;
+import org.springframework.boot.test.context.SpringBootTest;
+
+@SpringBootTest
+class UserServiceTest {
+
+	private
+	
+	@Test
+	void testCreate() {
+		fail("Not yet implemented");
+	}
+
+}

@@ -1,0 +1,6 @@
+package com.mysite.sbb.user;
+
+@entity
+public class SiteUser {
+
+}

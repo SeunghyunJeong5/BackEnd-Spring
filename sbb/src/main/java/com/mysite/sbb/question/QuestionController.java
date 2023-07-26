@@ -41,6 +41,18 @@ public class QuestionController {
 		//2. 비즈 니스 로직 처리 
 		Page<Question> paging = questionService.getList(page) ; 
 		
+		
+		/*
+		System.out.println("페이지 존재 여부 : " + paging.isEmpty());
+		System.out.println("전체 게시물수(레코드수) : " + paging.getTotalElements());
+		System.out.println("전체 페이지수  : " + paging.getTotalPages());
+		System.out.println("페이지당 출력할 레코드 갯수 : " + paging.getSize());
+		System.out.println("현재 페이지 : " + paging.getNumber());
+		System.out.println("다음 페이지 여부 : " + paging.hasNext());
+		System.out.println("이전 페이지 여부 : " + paging.hasPrevious());
+		*/ 
+		
+		
 		//3. 받아온 List를 client 로 전송 ( Model 객체에 저장해서 Cient로 전송 )  
 		model.addAttribute("paging", paging); 
 		

@@ -16,6 +16,8 @@
 		<tbody>
 			<!-- loop.count  : List의 방번호를 1번부터 출력    -->
 			<tr th:each = "question , loop : ${paging}">
+			<!-- ${}===> 서버로부터 넘어오는 객체를 받을때... paging 안에는 question객체가 여러개가 들어가있다. -->	
+				
 
 				<td th:text="${paging.getTotalElements - (paging.number * paging.size) - loop.index}">번호</td>
 				<!-- 공식같은거임 총 글개수 - (현재페이지 넘버 * 한페이지당 글 개수) - 루프 번호(0번부터 페이지당 글개수까지 한번씩 증가함.)-->
@@ -23,6 +25,15 @@
 				<td>
 					
 					<a th:href = "@{|/question/detail/${question.id}|}"  th:text ="${question.subject}"> 제목 </a>
+					
+					
+					<!-- 답변글의 개수를 표시 -->
+					 <span class = "text-danger small ms-2"
+					th:if = "${#lists.size(question.answerList)>0}"
+					th:text = "${#lists.size(question.answerList)}">
+						
+						
+						 </span>
 					
 					</td>
 				<td th:text="${#temporals.format(question.createDate, 'yyyy-MM-dd HH:mm')}">작성일시</td>

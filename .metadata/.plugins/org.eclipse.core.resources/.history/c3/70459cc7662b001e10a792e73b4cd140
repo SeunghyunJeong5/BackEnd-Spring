@@ -1,0 +1,8 @@
+package com.mysite.sbb.user;
+
+import jakarta.persistence.Entity;	//Spring 3.1.1 : jakarta, //Spring 2.x.x : javax
+
+@Entity
+public class SiteUser {
+
+}
