@@ -1,5 +1,6 @@
 package com.mysite.sbb.question;
 
+import java.security.Principal;
 import java.util.List;
 
 import org.springframework.data.domain.Page;
@@ -13,6 +14,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.mysite.sbb.answer.AnswerForm;
+import com.mysite.sbb.user.SiteUser;
+import com.mysite.sbb.user.UserService;
 
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
@@ -28,6 +31,7 @@ public class QuestionController {
 	
 	//private final QuestionRepository questionRepository;
 	private final QuestionService questionService; 
+	private final UserService userService;
 	
 	//client의 /question/list 요청을 처리하는 메소드 : http://localhost:9696/question/list
 	// 리스트 
@@ -90,9 +94,12 @@ public class QuestionController {
 	}
 	
 	//폼에서 제목과 내용을 받아서 DB에 등록 로직 
-	@PostMapping("/create")
+	@PostMapping("/create")	// /question/create
 	//public String questionCreate(@RequestParam String subject, @RequestParam String content) {
-	public String questionCreate(@Valid QuestionForm questionForm, BindingResult bindingResult) {
+	public String questionCreate(@Valid QuestionForm questionForm, BindingResult bindingResult,
+			Principal principal
+			
+			) {
 		
 		// 제목과 내용을 받어서 DB에 저장 
 		System.out.println("제목(dto) : " + questionForm.getSubject());
@@ -103,9 +110,13 @@ public class QuestionController {
 			return "question_form"; 
 		}
 		
+		//principal.getName() : 현재 로그인한 계정의 username을 알아온다.
+		SiteUser siteUser =
+		userService.getUser(principal.getName());
+		
 	
 		//DB에 저장 
-		questionService.create(questionForm.getSubject(), questionForm.getContent());
+		questionService.create(questionForm.getSubject(), questionForm.getContent(), siteUser);
 		
 		return "redirect:/question/list"; 
 	}

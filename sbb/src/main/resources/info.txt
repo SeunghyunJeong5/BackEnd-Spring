@@ -87,6 +87,14 @@
       
       -- 서비스에서 컨트롤러로부터 클라이언트가 요청한 페이지번호를 받아서 pageable 객체에 할당, 레코드 수 할당.
    
+   ==================================================================
+   인증 (Authentication): ID (IDentity) + Password 를 확인하는 작업
+   허가 (Authorization) : 인증된 사용자에게 권한을 부여하는 작업
+   		-- Admin
+   		-- User
+   		
+   		sec:authorize="isAnonymous()"		: 익명일때 true, 로그인 되지 않았을때 true
+		sec:authorize="isAuthenticated()"	: 로그인되었을때 true
    
    
    

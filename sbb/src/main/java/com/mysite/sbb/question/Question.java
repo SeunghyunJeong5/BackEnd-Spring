@@ -8,6 +8,7 @@ import java.util.List;
 import org.springframework.data.annotation.CreatedDate;
 
 import com.mysite.sbb.answer.Answer;
+import com.mysite.sbb.user.SiteUser;
 
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
@@ -15,6 +16,7 @@ import jakarta.persistence.Entity;	//spring boot 3.0,
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
 import lombok.Getter;
 import lombok.Setter;
@@ -79,9 +81,11 @@ public class Question {
 	
 	
 	
-	
-	
-	
+	//글쓴이 컬럼을 추가함.	//컬럼을 추가, 제거하더라도 유지보수가 최소화
+		//SiteUser 테이블의 특정 레코드를 참조해서 입력
+	//Foreign Key설정
+	@ManyToOne
+	private SiteUser author;
 	
 	
 	

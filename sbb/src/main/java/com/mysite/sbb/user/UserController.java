@@ -104,8 +104,16 @@ public class UserController {
 		return "redirect:/";
 	}
 
+	//로그인 뷰페이지 전송 : 
+	@GetMapping("/login")	//http://localhost:9696/user/login
+	public String login_form() {
+		
+		
+		return "login_form";
+	}
 	
-	
+	// 중요 : /user/login : post 요청은 SpringSecurity에서 자동으로 처리
+		//SecurityConfig.java
 	
 	
 	
