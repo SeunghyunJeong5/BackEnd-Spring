@@ -72,7 +72,8 @@ public class QuestionService {
 		
 	}
 	
-	// 질문 제목 + 질문 내용을 DB에 저장 : insert , update, delete  <=== void 
+	// 질문 제목 + 질문 내용을 DB에 저장 : insert , update, delete  <=== void
+	// 글 등록
 	public void create(String subject, String content, SiteUser siteUser) {
 		Question question = new Question(); 
 		
@@ -83,6 +84,25 @@ public class QuestionService {
 		
 		questionRepository.save(question); 
 		
+	}
+	
+	//글 수정
+	public void modify (Question question, String subject, String content) {
+		//수정할 question/수정할subject/수정할content
+		question.setSubject(subject);
+		question.setContent(content);
+		question.setCreateDate(LocalDateTime.now());
+		
+		questionRepository.save(question);
+		
+	}
+	
+	
+	//글 삭제 : delete() : delete할 question객체를 가져와서 인풋
+	public void delete(Question question) {
+		
+		
+		questionRepository.delete(question);
 	}
 	
 

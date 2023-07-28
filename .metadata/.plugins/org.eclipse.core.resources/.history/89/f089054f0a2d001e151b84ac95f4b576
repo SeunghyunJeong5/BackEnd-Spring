@@ -1,0 +1,41 @@
+package com.mysite.sbb.question;
+
+import static org.junit.jupiter.api.Assertions.*;
+
+import org.junit.jupiter.api.Test;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.context.SpringBootTest;
+
+@SpringBootTest
+class QuestionServiceTest {
+	
+	//test는 requirearg...안됨
+	@Autowired
+	private QuestionService questionService;
+
+	@Test
+	void testGetList() {
+		fail("Not yet implemented");
+	}
+
+	@Test
+	void testGetListInt() {
+		fail("Not yet implemented");
+	}
+
+	@Test
+	void testGetQuestion() {
+		questionService.getQuestion(null);
+	}
+
+	@Test
+	void testCreate() {
+		fail("Not yet implemented");
+	}
+
+	@Test
+	void testQuestionService() {
+		fail("Not yet implemented");
+	}
+
+}

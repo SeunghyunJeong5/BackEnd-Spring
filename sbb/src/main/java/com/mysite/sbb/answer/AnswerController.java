@@ -2,6 +2,7 @@ package com.mysite.sbb.answer;
 
 import java.security.Principal;
 
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -31,7 +32,8 @@ public class AnswerController {
 	
 	private final UserService userService;
 	
-	// 답변글을 저장 
+	// 답변글을 저장 : 반드시 로그인후 저장하도록 설정
+	@PreAuthorize("isAuthenticated()")
 	@PostMapping("/create/{id}")		// /answer/create/{id}
 	public String createAnswer(Model model , @PathVariable Integer id, 
 		@Valid	AnswerForm answerForm, BindingResult bindingResult,

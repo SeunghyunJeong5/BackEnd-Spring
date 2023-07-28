@@ -2,8 +2,10 @@ package com.mysite.sbb;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.config.annotation.authentication.configuration.AuthenticationConfiguration;
+import org.springframework.security.config.annotation.method.configuration.EnableMethodSecurity;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
@@ -13,6 +15,8 @@ import org.springframework.security.web.header.writers.frameoptions.XFrameOption
 import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 import org.springframework.util.AntPathMatcher;
 
+@EnableMethodSecurity
+	//Spring Security 에서 controller에 할당된 @PreAuthorize("isAuthenticated()") 를 작동
 @Configuration
 @EnableWebSecurity
 public class SecurityConfig {
@@ -59,6 +63,13 @@ public class SecurityConfig {
 			//로그인 처리 (Post요청 : /user/login)
 			.formLogin((formLogin) -> formLogin
 					.loginPage("/user/login")
+					
+					// Spring Security의 기본설정 : ID의 name = "username"
+					//							password 필드의 name = "password" (만약에 "password"에 "pass"같이 저장이되면 제대로 작동이 되지 않으므로 밑의 설정을 한다)
+					//.usernameParameter("email")
+					//.passwordParameter("password") 지금은 굳이 사용하지 않음
+					
+					
 						//UserSecurityService.java 에서 인증을 처리 후 성공시
 					.defaultSuccessUrl("/")
 					)
