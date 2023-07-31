@@ -91,7 +91,7 @@ public class QuestionService {
 		//수정할 question/수정할subject/수정할content
 		question.setSubject(subject);
 		question.setContent(content);
-		question.setCreateDate(LocalDateTime.now());
+		question.setModifyDate(LocalDateTime.now());
 		
 		questionRepository.save(question);
 		
@@ -103,6 +103,20 @@ public class QuestionService {
 		
 		
 		questionRepository.delete(question);
+	}
+	
+	
+	//글 추천 등록 메소드
+	public void vote(Question question, SiteUser siteuser) {
+		
+		//question.getVoter() ===> Set자료형임
+		question.getVoter().add(siteuser);
+		
+		//question.getVoter()가 Set이고 add를 통해서 넣어야함
+		//question.setVoter(siteuser); 오류남.
+		
+		questionRepository.save(question);
+		
 	}
 	
 

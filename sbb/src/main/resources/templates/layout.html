@@ -43,6 +43,19 @@
 			
 		});
 		
+		
+		
+		
+		const recommend_elements = document.getElementsByClassName("recommend");
+		Array.from(recommend_elements).forEach(function(element){
+			element.addEventListener('click',function(){
+				if(confirm("정말로 추천 하시겠습니까?")){
+					location.href=this.dataset.uri;
+				};
+			});
+			
+		});
+		
 	</script>
 	<!-- 함수 호출이 아니므로 자바스크립트 위치가 여기여야함.-->
     

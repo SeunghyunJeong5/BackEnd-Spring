@@ -4,6 +4,7 @@ package com.mysite.sbb.question;
 
 import java.time.LocalDateTime;
 import java.util.List;
+import java.util.Set;
 
 import org.springframework.data.annotation.CreatedDate;
 
@@ -16,6 +17,7 @@ import jakarta.persistence.Entity;	//spring boot 3.0,
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.ManyToMany;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
 import lombok.Getter;
@@ -53,6 +55,8 @@ public class Question {
 	@CreatedDate
 	private LocalDateTime createDate; 
 	
+	private LocalDateTime modifyDate;
+	
 	
 	//실제 테이블에는 적용되지 않음.
 	//해당 질문에 대한 모든 답변을 불러오는 컬럼
@@ -86,6 +90,16 @@ public class Question {
 	//Foreign Key설정
 	@ManyToOne
 	private SiteUser author;
+	
+	
+	
+	
+	//한 사용자는 여러질문에 추천을 할수있고, 한 질문은 여러사용자가 추천을 할수있으므로 다대다
+	//질문과 추천인의 관계는 다:다
+	//Set은 중복된 값이 올 수 없다.(한사람이 중복투표가 불가능하게)
+	//QUESTION_VOTER 테이블이 생성됨 : QUESTION_ID(QUESTION의 ID컬럼참조), VOITER_ID(SITE_USER의 ID컬럼참조) 컬럼이 자동으로 만들어짐
+	@ManyToMany
+	Set<SiteUser> voter;
 	
 	
 	

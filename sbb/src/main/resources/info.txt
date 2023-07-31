@@ -96,8 +96,18 @@
    		sec:authorize="isAnonymous()"		: 익명일때 true, 로그인 되지 않았을때 true
 		sec:authorize="isAuthenticated()"	: 로그인되었을때 true
    
+   ===================================================================
    
+   @ManytoOne	: FetchType.EAGER
+   @OnetoOne	: FetchType.EAGER
+   @OnetoMany	: FetchType.LAZY
+   @ManytoMany	: FetchType.LAZY
    
+   즉시로딩 : FetchType.EAGER		===> RAM을 많이 차지하고 부하가 많이 걸림
+   지연로딩 : FetchType.LAZY		===> 지연로딩을 권장, 요청이 있을때 로딩해서 적용
+   
+   사용법 :
+   ManyToMany(fetch=FetchType.LAZY)
    
   
   
