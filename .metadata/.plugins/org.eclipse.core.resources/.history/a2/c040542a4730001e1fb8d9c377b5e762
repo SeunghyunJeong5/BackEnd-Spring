@@ -1,0 +1,14 @@
+package com.mysite.sbb.question;
+
+import static org.junit.jupiter.api.Assertions.*;
+
+import org.junit.jupiter.api.Test;
+
+class QuestionServiceTest3 {
+
+	@Test
+	void testGetListIntString() {
+		fail("Not yet implemented");
+	}
+
+}

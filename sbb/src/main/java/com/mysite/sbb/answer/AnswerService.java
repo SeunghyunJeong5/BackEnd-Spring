@@ -19,7 +19,7 @@ public class AnswerService {
 	private final AnswerRepository answerRepository; 
 	
 	//답변글 등록 : Question 객체, content 
-	public void create (Question question, String content, SiteUser author) {
+	public Answer create (Question question, String content, SiteUser author) {
 		Answer answer = new Answer(); 
 		
 		answer.setContent(content);
@@ -33,13 +33,18 @@ public class AnswerService {
 		
 		answerRepository.save(answer); 
 			
+		
+		//DB에 값을 넣은 후 넣은 객체를 반환
+		return answer;
+		
+		
 	}
 	
 	//답변글 수정전에 id값을 받아서 Answer객체를 리턴으로 돌려줌
 	public Answer getAnswer(Integer id) {
 		
 		Optional<Answer> _answer=
-		answerRepository.findById(id);
+						answerRepository.findById(id);
 		//_answer의 객체가 비어있지 않을때 리턴
 		if(_answer.isPresent()) {
 			

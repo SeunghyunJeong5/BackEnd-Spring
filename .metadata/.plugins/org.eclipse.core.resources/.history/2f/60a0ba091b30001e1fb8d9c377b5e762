@@ -1,0 +1,17 @@
+package com.mysite.sbb;
+
+import org.springframework.stereotype.Component;
+
+@Component		//Bean에 객체 등록 : commonUtil (객체명) ==> 이렇게 만들어씀(Bean등록해놓고)
+public class CommonUtil {
+
+	//@Component, @Controller, @Service, @Repository : Bean에 객체등록
+
+	public String markdown (String markdown) {
+		Parser parser
+		
+		
+		return null;
+	}
+
+}

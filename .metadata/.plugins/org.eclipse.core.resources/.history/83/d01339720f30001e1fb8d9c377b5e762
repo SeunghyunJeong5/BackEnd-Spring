@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<!-- http://localhost:9696/anker#test1 -->
+	<a href = "#test1">테스트 1</a> <br>
+	<a href = "#test2">테스트 2</a> <br>
+	<a href = "#test3">테스트 3</a> <br>
+</body>
+</html>

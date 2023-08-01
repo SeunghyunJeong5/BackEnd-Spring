@@ -109,7 +109,35 @@
    사용법 :
    ManyToMany(fetch=FetchType.LAZY)
    
-  
+  ===========================================================
+  // 검색어 : 스프링
+// Question : subject, content 에서 검색
+select * from question where subject like '%스프링%' or content like '%스프링%'
+
+// Answer : content
+select * from answer where content like '%스프링%'
+
+// Site_user : username
+select * from site_user where username like '%스프링%'
+
+===============================================
+Question, Answer, SiteUser에서 한꺼번에 검색을 적용 : Left Outer JOIN을 사용해서 한번에 검색
+distinct는 중복된 값 제거
+
+
+select distinct *
+from question q
+	LEFT OUTER JOIN Site_User u1
+		ON q.author_id = u1.id
+	LEFT OUTER JOIN answer a
+		ON q.id = a.question_id
+	LEFT OUTER JOIN Site_User u2
+		ON a.author_id = u2.id
+where q.subject like '%스프링%' 
+	  or q.content like '%스프링%' 
+	  or u1.username like '%스프링%' 
+	  or a.content like '%스프링%'  
+	  or u2.username like '%스프링%'
   
   
   

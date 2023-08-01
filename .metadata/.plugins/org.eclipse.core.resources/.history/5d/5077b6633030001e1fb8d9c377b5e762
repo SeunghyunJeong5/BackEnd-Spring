@@ -1,0 +1,27 @@
+package com.mysite.sbb.question;
+
+import static org.junit.jupiter.api.Assertions.*;
+
+import org.junit.jupiter.api.Test;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.context.SpringBootTest;
+
+@SpringBootTest
+class QuestionServiceTest2 {
+
+	@Autowired
+	QuestionService questionService;
+	
+	@Test
+	void testCreate() {
+		
+		for(int i = 1; i <= 1000; i++) {
+				String subj = "제목" + i;
+				String cont = "내용" + i;
+			questionService.create(subj, null, null);	
+		}
+		
+		
+	}
+
+}
