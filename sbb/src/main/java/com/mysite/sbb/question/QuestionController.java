@@ -43,7 +43,7 @@ public class QuestionController {
 	
 	// http://localhost:9696/question/list?page=1
 	
-	@GetMapping ("/list")			//  /question/list
+	@GetMapping ("/list")			//  /question/list?kw=스프링&page=0
 	public String list(Model model , 
 			@RequestParam(value="page", defaultValue="0") int page,
 			@RequestParam(value = "kw", defaultValue="") String kw

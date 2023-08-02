@@ -1,5 +1,7 @@
 package com.mysite.sbb.question;
 
+import static org.junit.jupiter.api.Assertions.*;
+
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -22,9 +24,9 @@ class QuestionServiceTest2 {
 		SiteUser siteUser=
 				userService.getUser("user3");
 		
-		for(int i = 1; i <= 1000; i++) {
-				String subj = "제목" + i;
-				String cont = "내용" + i;
+		for(int i = 1; i <= 100; i++) {
+				String subj = "제목 스프링" + i;
+				String cont = "내용 스프링" + i;
 				
 			questionService.create(subj, cont, siteUser);	
 		}

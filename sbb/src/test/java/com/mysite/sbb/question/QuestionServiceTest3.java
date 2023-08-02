@@ -1,5 +1,7 @@
 package com.mysite.sbb.question;
 
+import static org.junit.jupiter.api.Assertions.*;
+
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -15,9 +17,10 @@ class QuestionServiceTest3 {
 	void testGetListIntString() {
 		
 		Page<Question> paging = 
-		questionService.getList(1, "스프링");
+		questionService.getList(0, "스프링");
 		
-		System.out.println("검색된 개수 : "+paging.getSize());
+		//System.out.println("검색된 개수 : "+paging.getSize()); //한페이지의 레코드개수
+		System.out.println("검색된 개수 : "+paging.getTotalElements()); 
 		
 		
 	}
