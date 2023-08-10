@@ -1,9 +1,0 @@
-package com.mysite.sbb;
-
-import org.springframework.stereotype.Component;
-
-@Component		//Bean에 객체 등록 : commonUtil (객체명)
-public class CommonUtil {
-
-	//@Component, @Controller, @Service, @Repository : Bean에 객체등록
-}
